@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="height100">
+    <head>
+        <meta http-equiv="content-type" content="text/php; charset=utf-8" />
+        <title>Panel CMS - Ad9BIS!</title>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-cookies/angular-cookies.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+        <script src="node_modules/angular-tablesort/js/angular-tablesort.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/controllers/cockpitController.js"></script>
+        <script src="js/controllers/objectsController.js"></script>
+        <script src="js/controllers/clientsController.js"></script>
+        <script src="js/controllers/contractsController.js"></script>
+        <script src="js/controllers/processingController.js"></script>
+        <script src="js/controllers/datesController.js"></script>
+	<style>
+	      a.topMenu:hover {
+		    font-family: "Comic Sans MS", cursive, sans-serif;
+		    color: #320909;
+		    background-color: #F5F5DC;
+	      }
+	      .background-colorDarkPink {
+		    background-color: #9F8D8D;
+	      }
+	      
+	      .background-colorLightPink {
+		    background-color: #EDDADA;
+              }
+              .borderBottom {
+		    border-bottom: 1px solid #7D7474;
+              }
+              .borderLeft {
+		    border-left: 1px solid #7D7474;
+              }
+              .borderRight {
+		    border-right: 1px solid #7D7474;
+              }
+	      .borderRightColor {
+		    border:1px solid; 
+		    border-color: transparent #7D7474 #7D7474 transparent;
+		    border-width: 1px 3px 1px 1px;
+              }
+              .colorBlack {
+		    color: black;
+              }
+	      .font-small {
+		    font-size: small;
+              }
+              .height3 {
+		    height: 3%;
+              }
+              .height10 {
+		    height: 10%;
+              }
+              .height100 {
+		    height:100%;
+              }
+              .marginLeft1 {
+		    margin-left: 1%;
+              }
+	      .underline {
+		    text-decoration: underline;
+	      }
+	</style>
+        <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+
+    <body ng-app="ZappApp" class="height100">
+    	<div class="height100">
+		<div class="col-sm-12" style="height: 7%;">
+			<img src="logo.png" alt="Logo" height="60" width="120" style="position: absolute; right: 2%; top: 8%;">
+		</div>
+		<div class="height100" ng-view></div>
+      	</div>
+  </body>
+</html>

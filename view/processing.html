@@ -1,0 +1,45 @@
+<div ng-controller="ProcessingController" class="height100"v>
+	<div class="col-sm-12">
+		<ul class="nav nav-tabs">
+			<li role="presentation" ng-class="{'active': active.cockpitActive}">
+				<a href="#/cockpit">Cockpit</a>
+			</li>
+			<li role="presentation" ng-class="{'active': active.objectsActive}">
+				<a href="#/objects">Objekte</a>
+			</li>
+			<li role="presentation" ng-class="{'active': active.clientsActive}">
+				<a href="#/clients">Kunden</a>
+			</li>
+			<li role="presentation" ng-class="{'active': active.contractsActive}">
+				<a href="#/contracts">Verträge</a>
+			</li>
+			<li role="presentation" class="active">
+				<a href="#/processing">Auftragsbearbeitung</a>
+			</li>
+			<li role="presentation" ng-class="{'active': active.datesActive}">
+				<a href="#/dates">Stammdaten</a>
+			</li>
+			<div class="col-sm-4 font-small" style="position: absolute; right: 0; bottom: 0; ">
+				<div class="col-sm-5 borderRightColor">
+						    <a href="#/mandant" class="underline topMenu">Mandant</a>
+				</div>
+				<div class="col-sm-5 borderRightColor">
+						    <a href="#/user" class="underline topMenu">User</a>
+				</div>
+				<div class="col-sm-2" style="">
+						    <a href="#/logout" class="underline topMenu">Logout</a>
+				</div>
+			</div>
+		</ul>  
+	</div>
+	<div class="col-sm-12 height100">
+		<div>
+			<ul class="nav nav-pills borderBottom borderLeft borderRight height10">
+				<li role="presentation" ng-class="{'active': processing.active.liste}"><a href="#/processing">Liste</a></li>
+				<li role="presentation" ng-class="{'active': processing.active.invoice}"><a href="#/processing/invoice">Rechnungslauf</a></li>
+			</ul>
+		</div>
+	        <div class="background-colorLightPink borderBottom borderLeft borderRight height3">
+	        </div>
+        </div>
+</div>
