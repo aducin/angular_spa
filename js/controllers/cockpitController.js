@@ -17,7 +17,9 @@ angular.module('ZappApp.CockpitController', [])
 	  })
 	  
 	  $scope.sort = function(name) {
+	      if ($scope.sortType == name) {
+		    $scope.sortReverse = !$scope.sortReverse;
+	      }
 	      $scope.sortType = name;
-	      $scope.sortReverse = !$scope.sortReverse;
 	  }
 }]);
