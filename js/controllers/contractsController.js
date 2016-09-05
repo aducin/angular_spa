@@ -1,11 +1,11 @@
 angular.module('ZappApp.ContractsController', [])
 
-.controller('ContractsController', ["$scope", '$routeParams', function($scope, $routeParams) {
+.controller('ContractsController', ["$scope", '$stateParams', function($scope, $stateParams) {
 	$scope.contractsActive = true;	
 	$scope.contract = [];
 	$scope.contract.active = [];
 	
-	var currentTarget = $routeParams.target;
+	var currentTarget = $stateParams.target;
 	if (currentTarget != undefined) {
 		$scope.contract.active[currentTarget] = true;
 		$scope.contract.bottomLinks = true;

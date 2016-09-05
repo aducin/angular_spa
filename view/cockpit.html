@@ -2,93 +2,151 @@
 	<div class="col-sm-12">
 		<ul class="nav nav-tabs">
 			<li role="presentation" class="active">
-				<a href="#/cockpit">Cockpit</a>
+				<a ng-href="#/cockpit">Cockpit</a>
 			</li>
 			<li role="presentation" ng-class="{'active': active.objectsActive}">
-				<a href="#/objects">Objekte</a>
+				<a ng-href="#/objects">Objekte</a>
 			</li>
 			<li role="presentation" ng-class="{'active': active.clientsActive}">
-				<a href="#/clients">Kunden</a>
+				<a ng-href="#/clients">Kunden</a>
 			</li>
 			<li role="presentation" ng-class="{'active': active.contractsActive}">
-				<a href="#/contracts">Verträge</a>
+				<a ng-href="#/contracts">Verträge</a>
 			</li>
 			<li role="presentation" ng-class="{'active': active.processingActive}">
-				<a href="#/processing">Auftragsbearbeitung</a>
+				<a ng-href="#/processing">Auftragsbearbeitung</a>
 			</li>
 			<li role="presentation" ng-class="{'active': active.datesActive}">
-				<a href="#/dates">Stammdaten</a>
+				<a ng-href="#/dates">Stammdaten</a>
 			</li>
 			<div class="col-sm-4 font-small" style="position: absolute; right: 0; bottom: 0; ">
 				<div class="col-sm-5 borderRightColor">
-						    <a href="#/mandant" class="underline topMenu">Mandant</a>
+					<a ng-href="#/mandant" class="underline topMenu">Mandant</a>
 				</div>
 				<div class="col-sm-4 borderRightColor">
-						    <a href="#/user" class="underline topMenu">User</a>
+					<a ng-href="#/user" class="underline topMenu">User</a>
 				</div>
-				<div class="col-sm-3" style="">
-						    <a href="#/logout" class="underline topMenu">Logout<i class="fa fa-sign-out pull-right" aria-hidden="true" style="margin-top: 3.9%;"></i></a>
+				<div class="col-sm-3">
+					<a ng-href="#/logout" class="underline topMenu">Logout<i class="fa fa-sign-out pull-right" aria-hidden="true" style="margin-top: 3.9%;"></i></a>
 				</div>
 			</div>
 		</ul>  
 	</div>
-	<div class="col-sm-12 height100">
+	<div class="col-sm-12 height85">
 		<ul class="nav nav-tabs background-colorLightPink borderLeft borderRight height10">
 		</ul>
-		<div class="col-sm-12 height3">
+		<div class="col-sm-12 height5">
+	        </div>
+		<div class="col-sm-4 pull-right height85">
+			<div class="font-small">
+				<p>Wiedervorlage: auslaufende Verträge</p>
+			</div>
+			<div class="col-sm-12 height3">
+			</div>
+			<div>
+				<table class="table table-striped table-bordered" cellspacing="0" width="90%">
+					<thead>
+						<th style="text-align: left;"><a href="#/cockpit" ng-click="sort('third', '')">Vertrag
+						<i ng-class="{'fa fa-fw fa-sort-desc pull-right': sortDesc['third'], 'fa fa-fw fa-sort-up pull-right': sortAsc['third']}"></i>
+						</a></th>
+						<th style="text-align: left;">Ablauf</th>
+					</thead>
+					<tbody class="font-small">
+						<tr ng-repeat="item in thirdTable | orderBy:'vertrag':sortReverse['third']">
+							<td>{{item.vertrag}}</td>
+							<td>{{item.ablauf}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<div class="col-sm-8 pull-left font-small">
-		      <p>Meine offenen Aufgaben</p>
-		</div>
-		<div class="col-sm-4 pull-right font-small">
-		      <p>Wiedervorlage: auslaufende Verträge</p>
-		</div>
-		<div class="col-sm-12 height3">
-		</div>
-		<div class="col-sm-8 pull-left">
-			<table class="table table-striped table-bordered" cellspacing="0" width="90%">
-				<thead>
-					<tr>
-						<th style="text-align: left;" >Art</th>
-						<th style="text-align: left;" >
-							<a href="#/cockpit" ng-click="sort('text')">Bezeichnung
-							<!--<span ng-show="sortType == 'text' && !sortReverse" class="fa fa-caret-down"></span>
-							<span ng-show="sortType == 'text' && sortReverse" class="fa fa-caret-up"></span>-->
-							<i class="fa fa-fw fa-sort pull-right"></i>
-							</a></th>
-						<th style="text-align: left;" >Status</th>
-						<th style="text-align: left;" >Fortschrift</th>
-						<th style="text-align: left;" >
-							<a href="#/cockpit" ng-click="sort('name')">Zuständig
-							<!--<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-							<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>-->
-							<i class="fa fa-fw fa-sort pull-right"></i>
-							</a> 
-						</th>
-						<th style="text-align: left;" >erstellt</th>
-						<th style="text-align: left;" >fällig</th>
-						<th style="text-align: left;">Objekt</th>
-					</tr>
-                                <thead>
-                                <tbody>
-					<tr ng-repeat="item in table | orderBy:sortType:sortReverse">
-						<td>{{item.text3}}</td>
-						<td>{{item.text}}</td>
-						<td>{{item.number}}</td>
-						<td>{{item.id}}</td>
-						<td>{{item.name}}</td>
-						<td>{{item.text2}}</td>
-						<td>{{item.number}}</td>
-						<td>{{item.id}}</td>
-					</tr>
-                                </tbody>
-			</table>
-		</div>
-		<div class="col-sm-4 pull-right">
-			<table class="table table-striped table-bordered" cellspacing="0" width="90%">
-				<th style="text-align: left;">Vertrag</th>
-                                <th style="text-align: left;">Ablauf</th>
-			</table>
+		<div class="col-sm-8 pull-left height85">
+			<div class="font-small">
+			      <p>Meine offenen Aufgaben</p>
+			</div>
+			<div class="col-sm-12 height3">
+			</div>
+			<div>
+				<table class="table table-striped table-bordered" cellspacing="0" width="90%">
+					<thead>
+						<tr>
+							<th style="text-align: left;" >Art</th>
+							<th style="text-align: left;" >
+								<a href="#/cockpit" ng-click="sort('first', 'text')">Bezeichnung
+								<!--<span ng-show="sortType == 'text' && !sortReverse" class="fa fa-caret-down"></span>
+								<span ng-show="sortType == 'text' && sortReverse" class="fa fa-caret-up"></span>-->
+								<i ng-class="{'fa fa-fw fa-unsorted pull-right': sortType['first'] == 'name', 'fa fa-fw fa-sort-desc pull-right': sortType['first'] == 'text' && sortDesc['first'], 'fa fa-fw fa-sort-up pull-right': sortType['first'] == 'text' && sortAsc['first']}"></i>
+								</a></th>
+							<th style="text-align: left;" >Status</th>
+							<th style="text-align: left;" >Fortschrift</th>
+							<th style="text-align: left;" >
+								<a href="#/cockpit" ng-click="sort('first', 'name')">Zuständig
+								<!--<span ng-show="sortType['first'] == 'name' && !sortReverse['first']" class="fa fa-caret-down"></span>
+								<span ng-show="sortType['first'] == 'name' && sortReverse['first']" class="fa fa-caret-up"></span>-->
+								<i ng-class="{'fa fa-fw fa-unsorted pull-right': sortType['first'] == 'text', 'fa fa-fw fa-sort-desc pull-right': sortType['first'] == 'name' && sortDesc['first'], 'fa fa-fw fa-sort-up pull-right': sortType['first'] == 'name' && sortAsc['first']}"></i>
+								</a> 
+							</th>
+							<th style="text-align: left;" >erstellt</th>
+							<th style="text-align: left;" >fällig</th>
+							<th style="text-align: left;">Objekt</th>
+						</tr>
+					<thead>
+					<tbody class="font-small">
+						<tr ng-repeat="item in firstTable | orderBy:sortType['first']:sortReverse['first']">
+							<td>{{item.type}}</td>
+							<td>{{item.description}}</td>
+							<td>{{item.status}}</td>
+							<td>{{item.progress}}</td>
+							<td>{{item.employee}}</td>
+							<td>{{item.date}}</td>
+							<td>{{item.endDate}}</td>
+							<td>{{item.object}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 height3">
+			</div>
+			<div class="font-small">
+			      <p>Meine offenen Störungen</p>
+			</div>
+			<div class="col-sm-12 height3">
+			</div>
+			<div>
+				<table class="table table-striped table-bordered" cellspacing="0" width="90%">
+					<thead>
+						<tr>
+							<th style="text-align: left;" >Art</th>
+							<th style="text-align: left;" >
+								<a href="#/cockpit" ng-click="sort('second', 'text')">Bezeichnung
+								<i ng-class="{'fa fa-fw fa-unsorted pull-right': sortType['second'] == 'name', 'fa fa-fw fa-sort-desc pull-right': sortType['second'] == 'text' && sortDesc['second'], 'fa fa-fw fa-sort-up pull-right': sortType['second'] == 'text' && sortAsc['second']}"></i>
+								</a></th>
+							<th style="text-align: left;" >Status</th>
+							<th style="text-align: left;" >Fortschrift</th>
+							<th style="text-align: left;" >
+								<a href="#/cockpit" ng-click="sort('second', 'name')">Zuständig
+								<i ng-class="{'fa fa-fw fa-unsorted pull-right': sortType['second'] == 'text', 'fa fa-fw fa-sort-desc pull-right': sortType['second'] == 'name' && sortDesc['second'], 'fa fa-fw fa-sort-up pull-right': sortType['second'] == 'name' && sortAsc['second']}"></i>
+								</a> 
+							</th>
+							<th style="text-align: left;" >erstellt</th>
+							<th style="text-align: left;" >fällig</th>
+							<th style="text-align: left;">Objekt</th>
+						</tr>
+					<thead>
+					<tbody class="font-small">
+						<tr ng-repeat="item in secondTable | orderBy:sortType['second']:sortReverse['second']">
+							<td>{{item.type}}</td>
+							<td>{{item.description}}</td>
+							<td>{{item.status}}</td>
+							<td>{{item.progress}}</td>
+							<td>{{item.employee}}</td>
+							<td>{{item.date}}</td>
+							<td>{{item.endDate}}</td>
+							<td>{{item.object}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
         </div>
 </div>
